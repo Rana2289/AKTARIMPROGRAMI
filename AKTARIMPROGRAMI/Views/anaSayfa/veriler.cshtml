@@ -1,0 +1,150 @@
+﻿@model IEnumerable<AKTARIMPROGRAMI.Models.users>
+@using (Html.BeginForm("Index", "anaSayfa", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Örnek Sayfa</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            /* styles.css */
+
+            /* Tablo başlığı (thead) */
+            table th {
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+            }
+
+            /* Tablo hücreleri (td) */
+            table td {
+                padding: 8px;
+                border: 1px solid #ccc;
+                text-align: center;
+            }
+
+            /* Sıradaki satırların arka plan rengini değiştirme */
+            table tbody tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+            /* styles.css */
+
+            #my-custom-div {
+                background-color: white;
+                margin-left: 25px;
+                width: 160px;
+                height: 25px;
+                text-align: center;
+            }
+
+            #aramacubuk {
+                width: 300px;
+                margin-left: 1150px;
+                margin-top: 50px;
+                height: 25px;
+            }
+
+            #submit-button {
+                margin-left: 530px;
+                width: 160px;
+                height: 30px;
+                margin-top: 25px;
+            }
+
+            #submit-button2 {
+                margin-left: 20px;
+                width: 160px;
+                height: 30px;
+                margin-top: 25px;
+            }
+
+            .custom-table {
+                margin-top: 20px;
+                background-color: white;
+                margin-left: 50px;
+            }
+        </style>
+    </head>
+
+    <body style="background-color: #c8a2c8; ">
+        <input type="text" id="aramacubuk" placeholder="Arama...">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>işaret</th>
+                    <th onclick="sortTable(1)">tarih</th>
+                    <th onclick="sortTable(1)">fiş no</th>
+                    <th>türü</th>
+                    <th>cari kodu</th>
+                    <th>cari adı</th>
+                    <th onclick="sortTable(1)">tutar</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>
+
+                        <input type="checkbox" id="checkbox1" name="checkbox1" value="seçildi">
+                    </td>
+                    <td>&asdfghjklşlçköjhgfdsasdfghgf;</td>
+                    <td>&asdfghjklşlçköjhgfdsasdfghgf;</td>
+                    <td>&asdfghjklşlçköjhgfdsasdfghgf;</td>
+                    <td>&asdfghjklşlçköjhgfdsasdfghgf;</td>
+                    <td>&asdfghjklşlçköjhgfdsasdfghgf;</td>
+                    <td>&asdfghjklşlçköjhgfdsasdfghgf;</td>
+
+
+                </tr>
+                <tr>
+                    <td>
+
+                        <input type="checkbox" id="checkbox1" name="checkbox1" value="seçildi">
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <!-- İhtiyaca göre diğer alanlar -->
+                </tr>
+                <tr>
+                    <td>
+
+                        <input type="checkbox" id="checkbox1" name="checkbox1" value="seçildi">
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <!-- İhtiyaca göre diğer alanlar -->
+                </tr>
+            </tbody>
+
+        </table>
+        <b><button id="submit-button" type="submit">Aktar</button></b>
+
+        <b><button id="submit-button2" type="submit">işaret kaldır</button></b>
+        <b><button id="submit-button2" type="submit">Aktarıldı Yap </button></b>
+    </body>
+</html>
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#aramacubuk").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".custom-table tbody tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>

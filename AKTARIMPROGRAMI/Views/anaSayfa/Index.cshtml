@@ -1,0 +1,120 @@
+﻿@model IEnumerable<AKTARIMPROGRAMI.Models.users>
+@using (Html.BeginForm("Index", "anaSayfa", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Örnek Sayfa</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            /* Forma genel stil vermek için kullanılabilir */
+            .form-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-image: url('/Content/image/Accountancy-and-Auditing.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-color: rgba(0, 0, 0, 0.5); /* Arka planın opaklığını ayarlayın */
+            }
+
+            .form-cerceve {
+                border: 5px solid #ccc;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: rgba(255, 255, 255, 0.5);
+                width: 800px;
+                height:500px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Diğer CSS stilleri burada devam edebilir */
+
+            #deneme {
+                height: 30px;
+                width: 100%;
+                padding: 5px;
+                margin-top: 10px;
+            }
+
+            #tarih {
+                height: 20px;
+                width: 98.5%;
+                padding: 5px;
+                margin-top: 10px;
+            }
+
+            #submit-button {
+                margin-top: 10px;
+                width: 100%;
+                height: 35px;
+                background-color: mediumpurple;
+                border: none;
+                color: white;
+                cursor: pointer;
+            }
+           
+        </style>
+
+    </head>
+
+    <body>
+        <div class="form-container">
+            <div class="form-cerceve">
+                <label>Hedef Firma Dönemi:</label>
+                <div>
+                    <select id="deneme" name="islem" onchange="showDiv(this)">
+                        <option value="0" selected>Seçiniz</option>
+                        <option value="1">904-01</option>
+                        <option value="2">904-02</option>
+                        <option value="3">904-03</option>
+                    </select>
+                </div>
+
+                <!-- Diğer form alanları burada gelebilir -->
+                <br />
+                <label>Başlangıç Tarihi:</label>
+                @Html.TextBox("Tarih", "", new { id = "tarih", type = "date" })
+                <br />
+
+                <label>Bitiş Tarih:</label>
+                @Html.TextBox("Tarih", "", new { id = "tarih", type = "date" })
+                <br />
+                <label>İşlem:</label>
+                <div>
+                    <select id="deneme" name="islem" onchange="showDiv(this)">
+                        <option value="0" selected>Seçiniz</option>
+                        <option value="1">Satış Faturaları</option>
+                        <option value="2">Alım Faturaları</option>
+                    </select>
+                </div>
+                <br />
+                <label>Fatura Türü:</label>
+                <div>
+                    <select id="deneme" name="islem" onchange="showDiv(this)">
+                        <option value="0" selected>Seçiniz</option>
+                        <option value="1">X Faturaları</option>
+                        <option value="2">Y Faturaları</option>
+                    </select>
+                </div>
+                <br />
+                <label>Durum:</label>
+                <div>
+                    <select id="deneme" name="islem" onchange="showDiv(this)">
+                        <option value="0" selected>Seçiniz</option>
+                        <option value="1">Aktarılanlar</option>
+                        <option value="2">Aktarılmayanlar</option>
+                    </select>
+                </div>
+                <br />
+                <button id="submit-button">
+                    <a href="@Url.Action("veriler", "anaSayfa")">Listele</a>
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
+}

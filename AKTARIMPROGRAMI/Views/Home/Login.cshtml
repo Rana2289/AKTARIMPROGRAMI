@@ -1,0 +1,82 @@
+﻿@model AKTARIMPROGRAMI.Models.users
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AKTARIM PROGRAMI</title>
+    <style>
+        body {
+            background-image: url('/Content/image/insights-forensic-accounting-digital-analytics-960x600.jpg');/* Arka plan resmi dosyasının yolunu belirtin */
+            background-size:cover; /* Resmi ekran boyutuna sığacak şekilde ayarlar */
+            background-repeat: no-repeat; /* Resmin yinelenmesini engeller */
+        }
+
+        /* Diğer stil kuralları buraya gelebilir */
+        #custom-background {
+            background-image: url('arka_plan_resmi.jpg'); /* Arka plan resmini belirtin */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* Diğer stil özelliklerini burada ekleyebilirsiniz */
+        }
+        #giris {
+            margin-left: 850px;
+            margin-top: -150px;
+            color: #1b827e;
+            width:250px;
+            height:160px;
+            font-size: 15px;
+            background-color: rgba(255, 255, 255, 0.9); /* Giriş alanının arka plan rengini ayarlayın */
+            padding: 20px;
+        }
+
+        #buton {
+            margin-left: 935px;
+            background-color: #1b827e;
+            height: 30px;
+            width: 100px;
+        }
+
+        #baslik {
+            margin-top:200px;
+            margin-left:200px;
+            
+        }
+        .form-control {
+            height: 22px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div id="baslik">
+            <p>
+                <h1>AKTARIM PROGRAMI</h1>
+                <h2 style="margin-left:70px;">Sümer Lojistik</h2>
+                <h4 style="margin-left:80px;"> Muhasebe & Finans </h4>
+            </p>
+        </div>
+        <div id="custom-background">
+            <div id="giris">
+                <div class="form-group">
+                    <label>ADINIZ:</label>&nbsp;&nbsp;<br />
+                    @Html.TextBoxFor(model => model.nameSurname, new { @class = "form-control" })
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>SOYADINIZ:</label>&nbsp;&nbsp;<br />
+                    @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary" style="background-color: #1b827e; height: 30px; width: 100px; margin-left: 50px; ">Giriş Yap</button>
+            </div>
+           
+        </div>
+
+    }
+
+</body>
+</html>
